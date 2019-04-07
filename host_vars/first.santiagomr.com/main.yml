@@ -1,0 +1,8 @@
+---
+
+baseproject_server_name: "First Server"
+
+baseproject_packages_to_install:
+  - git
+  - screen
+  - tmux

@@ -1,0 +1,7 @@
+---
+
+baseproject_server_name: "Default Server Name"
+
+baseproject_packages_to_install:
+  - git
+  - screen

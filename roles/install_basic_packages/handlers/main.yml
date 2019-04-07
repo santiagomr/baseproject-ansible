@@ -1,0 +1,7 @@
+---
+# handlers file for install_basic_packages
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted

@@ -1,20 +1,5 @@
-baseproject-ansible
-=========
+---
 
-Project with the typical structure of an ansible project, to start trying new ideas quickly.
-Includes playbook, roles, invocations to typical modules, debugs, use of variables and vaults, inventory classified by groups, configuration files and more. All referenced with links to official documentation.
-
-
-Requirements
-------------
-
-This project was designed for version 2.7 of Ansible
-
-
-Example Playbook
-----------------
-
-```yaml
 ## https://docs.ansible.com/ansible/latest/network/getting_started/basic_concepts.html
 ## https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html
 
@@ -34,10 +19,12 @@ Example Playbook
       shell: hostname   # https://docs.ansible.com/ansible/latest/modules/shell_module.html
       register: name_of_host
 
+
     - name: See the hostname on which I am running
       debug:    # https://docs.ansible.com/ansible/latest/modules/debug_module.html
         var: name_of_host
         verbosity: 0
+
 
     - name: Install Nginx (on Debian)
       apt:    # https://docs.ansible.com/ansible/latest/modules/apt_module.html
@@ -48,6 +35,7 @@ Example Playbook
       tags: nginx
       when: ansible_distribution == "Debian"
 
+
     - name: Install Nginx (on Fedora)
       yum:  # https://docs.ansible.com/ansible/latest/modules/yum_module.html
         name: nginx
@@ -55,6 +43,7 @@ Example Playbook
         update_cache: yes
       tags: nginx
       when: ansible_distribution == "Fedora"
+
 
     - name: Create a directory if it doesn't exist
       file:   # https://docs.ansible.com/ansible/latest/modules/file_module.html
@@ -64,13 +53,15 @@ Example Playbook
         group: root
         mode: "0755"
 
-    - name: Copy a file to server
+
+    - name: Copy ansible logo file to server
       copy:   # https://docs.ansible.com/ansible/latest/modules/copy_module.html
         src: ansible_logo.png
         dest: /var/www/html/logo.png
         owner: root
         group: root
         mode: "0644"
+
 
     - name: Set nginx index page
       template:   # https://docs.ansible.com/ansible/latest/modules/template_module.html
@@ -80,12 +71,14 @@ Example Playbook
         group: root
         mode: "0644"
 
+
     - name: Restart nginx service
       service:    # https://docs.ansible.com/ansible/latest/modules/service_module.html
         name: nginx
         state: restarted
       tags: [nginx,services]   # https://docs.ansible.com/ansible/latest/user_guide/playbooks_tags.html
       when: restart_nginx
+
 
 - name: A sample of use of roles
   hosts: all
@@ -97,27 +90,3 @@ Example Playbook
   roles:
     - role: install_basic_packages  # Install basic packages from a role
       when: inventory_hostname in groups.cluster1   # It would be better to indicate this in the 'hosts' parameter of the task, but this is just an example of use.
-````
-
-Running The Example Playbook
-----------------
-
-For all hosts:
-
-	ansible-playbook site.yml
-
-For a specific host:
-
-	ansible-playbook --limit first.santiagomr.com site.yml
-
-
-License
--------
-
-GNU GPLv3
-
-
-Author Information
-------------------
-
-[santiagomr](https://github.com/santiagomr)

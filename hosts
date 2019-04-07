@@ -1,0 +1,20 @@
+---
+# Inentory file
+# https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+all:
+  hosts:
+    first.santiagomr.com:
+  children:
+    cluster1:
+      children:
+        web_servers:
+          hosts:
+            first.santiagomr.com:
+            second.santiagomr.com:
+        backup_servers:
+          hosts:
+            123.234.123.234:
+    cluster2:
+      hosts:
+        172.16.1.1:
+        172.16.5.5:

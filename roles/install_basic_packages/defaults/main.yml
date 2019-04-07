@@ -1,0 +1,6 @@
+---
+# defaults file for install_basic_packages
+
+baseproject_packages_to_install:
+  - git
+  - screen

@@ -1,0 +1,15 @@
+---
+# tasks file for install_basic_packages
+
+- name: See how the variable baseproject_packages_to_install is defined for this host
+  debug:    # https://docs.ansible.com/ansible/latest/modules/debug_module.html
+    var: baseproject_packages_to_install
+    verbosity: 0
+
+- name: Install basic packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ baseproject_packages_to_install }}"
+
+

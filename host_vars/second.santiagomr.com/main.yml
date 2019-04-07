@@ -1,0 +1,8 @@
+---
+
+baseproject_server_name: "Second Server"
+
+baseproject_packages_to_install:
+  - git
+  - screen
+  - apt-transport-https

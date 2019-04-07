@@ -1,0 +1,41 @@
+---
+# Galaxy or other pubic roles
+# https://docs.ansible.com/ansible/latest/reference_appendices/galaxy.html
+
+# run 'ansible-galaxy install -r requirements.yml' in project root folder to download the roles in the folder specified in 'ansible.cfg' file
+
+# from galaxy
+- name: my_custom_folder_name
+  src: yatesr.timezone
+
+# from GitHub
+- src: https://github.com/bennojoy/nginx
+  version: 00dc2261017f17a73f2d380ab856edd99cdb4618  # SHA of commit
+  scm: git
+
+# from GitHub, overriding the name and specifying a specific tag
+- src: https://github.com/bennojoy/nginx
+  version: master
+  name: nginx_role
+
+# from a webserver, where the role is packaged in a tar.gz
+- src: https://some.webserver.example.com/files/master.tar.gz
+  name: http-role
+
+# from Bitbucket
+- src: git+https://bitbucket.org/willthames/git-ansible-galaxy
+  version: v1.4
+
+# from Bitbucket, alternative syntax and caveats
+- src: https://bitbucket.org/willthames/hg-ansible-galaxy
+  scm: hg
+
+# from GitLab or other git-based scm, using git+ssh
+- src: git@gitlab.company.com:mygroup/ansible-base.git
+  scm: git
+  version: "0.1"  # quoted, so YAML doesn't parse this as a floating-point value
+
+
+
+
+
