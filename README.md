@@ -1,7 +1,7 @@
 baseproject-ansible
 =========
 
-Project with the typical structure of an ansible project, to start trying new ideas quickly.
+Typical structure of an ansible project, to start trying new ideas quickly.
 Includes playbook, roles, invocations to typical modules, debugs, use of variables and vaults, inventory classified by groups, configuration files and more. All referenced with links to official documentation.
 
 
